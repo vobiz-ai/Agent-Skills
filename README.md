@@ -56,4 +56,14 @@ npx skills add vobiz-ai/Agent-Skills \
 
 Skills provide instructions, not credentials. Keep `X-Auth-ID` and `X-Auth-Token` in environment variables or a secret manager.
 
-For current API documentation, use [docs.vobiz.ai](https://docs.vobiz.ai) and the hosted MCP server at `https://docs.vobiz.ai/mcp`.
+## Developer resources
+
+| Resource | URL |
+| --- | --- |
+| API documentation | [vobiz.ai/docs/introduction](https://vobiz.ai/docs/introduction) |
+| OpenAPI specification | [vobiz.ai/openapi.json](https://vobiz.ai/openapi.json) |
+| Documentation MCP server | [vobiz.ai/docs/mcp](https://vobiz.ai/docs/mcp) |
+| Developer Console | [console.vobiz.ai](https://console.vobiz.ai) |
+| LLM discovery index | [vobiz.ai/llms.txt](https://vobiz.ai/llms.txt) |
+| Agent orientation | [vobiz.ai/agents.md](https://vobiz.ai/agents.md) |
+| Integration guides | [vobiz.ai/docs/integrations](https://vobiz.ai/docs/integrations) |
