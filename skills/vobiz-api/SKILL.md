@@ -28,7 +28,7 @@ Load only the specialized skill that matches the requested operation:
 
 ## Apply common rules
 
-1. Fetch current endpoint details from `https://docs.vobiz.ai` or the Vobiz MCP server at `https://docs.vobiz.ai/mcp` when a request shape is uncertain.
+1. Fetch current endpoint details from `https://vobiz.ai/docs/introduction` or the Vobiz MCP server at `https://vobiz.ai/docs/mcp` when a request shape is uncertain.
 2. Preserve API path casing exactly. Vobiz uses `/Account/`, `/account/`, and `/accounts/` for different resources.
 3. URL-encode E.164 numbers used in paths (`+` becomes `%2B`). Keep the literal `+` in JSON bodies.
 4. Treat `401` as an authentication or path-casing problem, `429` as a rate or capacity limit, and `5xx` as an unknown outcome that requires state verification before retrying.
