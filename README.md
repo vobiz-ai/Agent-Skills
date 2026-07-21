@@ -102,3 +102,19 @@ Skills provide instructions, not credentials. Keep `X-Auth-ID` and `X-Auth-Token
 | LLM discovery index | [vobiz.ai/llms.txt](https://vobiz.ai/llms.txt) |
 | Agent orientation | [vobiz.ai/agents.md](https://vobiz.ai/agents.md) |
 | Integration guides | [vobiz.ai/docs/integrations](https://vobiz.ai/docs/integrations) |
+
+## MCP Registry
+
+The repository includes [`server.json`](./server.json) for publishing the
+public Vobiz documentation server to the official MCP Registry. The server uses
+Streamable HTTP and does not require credentials:
+
+```text
+https://vobiz.ai/docs/mcp
+```
+
+Registry name:
+
+```text
+io.github.vobiz-ai/vobiz-docs
+```

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.vobiz-ai/vobiz-docs",
+  "title": "Vobiz Docs",
+  "description": "Search Vobiz documentation for voice, SIP, messaging, and AI agent integrations.",
+  "version": "1.0.0",
+  "websiteUrl": "https://vobiz.ai/docs/resources/mcp",
+  "icons": [
+    {
+      "src": "https://vobiz.ai/favicon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://vobiz.ai/docs/mcp"
+    }
+  ]
+}
