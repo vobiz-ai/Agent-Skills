@@ -4,6 +4,24 @@ Reusable skills that teach coding agents how to build with the Vobiz REST API, V
 
 ## Install
 
+### Claude plugin
+
+Add the official Vobiz marketplace and install the plugin in Claude Code:
+
+```bash
+claude plugin marketplace add vobiz-ai/Agent-Skills
+claude plugin install vobiz@vobiz-plugins
+```
+
+The plugin includes all Vobiz skills in this repository and connects Claude to
+the public Vobiz documentation MCP server for current documentation search.
+After installation, run `/reload-plugins` in Claude Code.
+
+You can also add `https://github.com/vobiz-ai/Agent-Skills` through your Claude
+organization's **Settings → Plugins → Add plugins** control.
+
+### Other coding agents
+
 List the available skills:
 
 ```bash
