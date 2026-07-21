@@ -17,3 +17,39 @@ jobs:
         env:
           DISABLE_TELEMETRY: "1"
         run: npx --yes skills add . --list
+      - name: Verify plugin manifests and assets
+        run: |
+          node --input-type=module <<'EOF'
+          import { readFileSync, readdirSync } from "node:fs";
+
+          const jsonFiles = [
+            ".agents/plugins/marketplace.json",
+            ".claude-plugin/marketplace.json",
+            ".claude-plugin/plugin.json",
+            ".codex-plugin/plugin.json",
+            ".mcp.json",
+            "server.json",
+          ];
+          for (const file of jsonFiles) JSON.parse(readFileSync(file, "utf8"));
+
+          const skills = readdirSync("skills", { withFileTypes: true })
+            .filter((entry) => entry.isDirectory())
+            .map((entry) => entry.name);
+          if (skills.length !== 13) throw new Error(`Expected 13 skills, found ${skills.length}`);
+
+          const pngSignature = "89504e470d0a1a0a";
+          for (const file of ["assets/icon.png", "assets/logo.png"]) {
+            const signature = readFileSync(file).subarray(0, 8).toString("hex");
+            if (signature !== pngSignature) throw new Error(`${file} is not a PNG`);
+          }
+
+          const codex = JSON.parse(readFileSync(".codex-plugin/plugin.json", "utf8"));
+          if (codex.name !== "vobiz" || codex.skills !== "./skills/" || codex.mcpServers !== "./.mcp.json") {
+            throw new Error("Codex manifest paths are invalid");
+          }
+
+          const marketplace = JSON.parse(readFileSync(".agents/plugins/marketplace.json", "utf8"));
+          if (marketplace.plugins?.[0]?.source?.path !== ".") {
+            throw new Error("Codex marketplace must target the flat repository root");
+          }
+          EOF
