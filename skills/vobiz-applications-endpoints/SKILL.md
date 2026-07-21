@@ -1,6 +1,6 @@
 ---
 name: vobiz-applications-endpoints
-description: Configure Vobiz Voice Applications (webhook URLs for answer/hangup callbacks) and SIP Endpoints (soft-phones, IP phones, browser clients).
+description: Configure Vobiz Voice Applications and SIP Endpoints. Use when setting answer or hangup webhook URLs, attaching call-control applications to phone numbers, creating SIP credentials, registering softphones or desk phones, connecting browser/WebRTC clients, or troubleshooting endpoint registration and routing.
 ---
 
 # Vobiz Applications & Endpoints skill

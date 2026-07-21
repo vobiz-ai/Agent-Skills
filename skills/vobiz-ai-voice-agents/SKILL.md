@@ -1,6 +1,6 @@
 ---
 name: vobiz-ai-voice-agents
-description: Build AI voice agents on Vobiz with native integrations for Vapi, Retell AI, ElevenLabs, LiveKit, Pipecat, Bolna, Ultravox, OpenAI Realtime, Deepgram, and WebRTC.
+description: Build AI voice agents on Vobiz with Vapi, Retell AI, ElevenLabs, LiveKit, Pipecat, Bolna, Ultravox, OpenAI Realtime, Deepgram, and WebRTC. Use when connecting an agent to real phone calls through SIP, phone numbers, browser calling, or bidirectional audio streams, or when choosing the correct provider-specific integration path.
 ---
 
 # Vobiz AI Voice Agents skill

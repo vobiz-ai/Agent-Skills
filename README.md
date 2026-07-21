@@ -14,7 +14,7 @@ codex plugin add vobiz@vobiz-plugins
 ```
 
 Start a new Codex session after installation. The plugin loads all 13 Vobiz
-skills and connects to the public Vobiz documentation MCP server.
+skills and connects to the public Vobiz Docs MCP server.
 
 To verify the marketplace and installation:
 
@@ -33,7 +33,7 @@ claude plugin install vobiz@vobiz-plugins
 ```
 
 The plugin includes all Vobiz skills in this repository and connects Claude to
-the public Vobiz documentation MCP server for current documentation search.
+the public Vobiz Docs MCP server for current documentation search.
 After installation, run `/reload-plugins` in Claude Code.
 
 Verify the plugin manifests before contributing changes:
@@ -137,7 +137,11 @@ Skills provide instructions, not credentials. Keep `X-Auth-ID` and `X-Auth-Token
 | --- | --- |
 | API documentation | [vobiz.ai/docs/introduction](https://vobiz.ai/docs/introduction) |
 | OpenAPI specification | [vobiz.ai/openapi.json](https://vobiz.ai/openapi.json) |
-| Documentation MCP server | [vobiz.ai/docs/mcp](https://vobiz.ai/docs/mcp) |
+| Vobiz Docs MCP server | [vobiz.ai/docs/mcp](https://vobiz.ai/docs/mcp) |
+| Vobiz Docs MCP setup guide | [vobiz.ai/docs/resources/mcp](https://vobiz.ai/docs/resources/mcp) |
+| MCP Registry manifest | [vobiz.ai/server.json](https://vobiz.ai/server.json) |
+| MCP server card | [vobiz.ai/.well-known/mcp/server-card.json](https://vobiz.ai/.well-known/mcp/server-card.json) |
+| Agent Skills discovery index | [vobiz.ai/.well-known/agent-skills/index.json](https://vobiz.ai/.well-known/agent-skills/index.json) |
 | Developer Console | [console.vobiz.ai](https://console.vobiz.ai) |
 | LLM discovery index | [vobiz.ai/llms.txt](https://vobiz.ai/llms.txt) |
 | Agent orientation | [vobiz.ai/agents.md](https://vobiz.ai/agents.md) |
@@ -146,8 +150,21 @@ Skills provide instructions, not credentials. Keep `X-Auth-ID` and `X-Auth-Token
 ## MCP Registry
 
 The repository includes [`server.json`](./server.json) for publishing the
-public Vobiz documentation server to the official MCP Registry. The server uses
-Streamable HTTP and does not require credentials:
+public Vobiz Docs server to the official MCP Registry. It searches documentation
+for voice, SIP, messaging, and AI-agent integrations. The server uses Streamable
+HTTP and does not require credentials.
+
+| Registry field | Value |
+| --- | --- |
+| Name | `io.github.vobiz-ai/vobiz-docs` |
+| Title | `Vobiz Docs` |
+| Version | `1.0.0` |
+| Website | `https://vobiz.ai/docs/resources/mcp` |
+| Icon | `https://vobiz.ai/favicon.svg` |
+| Transport | `streamable-http` |
+| Remote endpoint | `https://vobiz.ai/docs/mcp` |
+
+Canonical endpoint:
 
 ```text
 https://vobiz.ai/docs/mcp

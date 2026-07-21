@@ -1,6 +1,6 @@
 ---
 name: vobiz-partner-api
-description: Vobiz Partner / reseller API - create customer sub-accounts, transfer balance, run KYC sessions (PAN+Aadhaar OTP, no documents), and query per-customer CDRs/transactions/numbers.
+description: Build Vobiz Partner and reseller workflows. Use when a master partner needs to create or manage customer sub-accounts, transfer wallet balance, start hosted or PAN/Aadhaar OTP KYC, retrieve customer phone numbers, transactions, or CDRs, or implement white-label telephony operations across multiple customers.
 ---
 
 # Vobiz Partner API skill

@@ -1,6 +1,6 @@
 ---
 name: vobiz-audio-streams
-description: Stream live call audio bidirectionally over WebSocket for AI voice agents, real-time transcription, and custom audio pipelines.
+description: Stream live Vobiz call audio bidirectionally over WebSocket. Use when building AI voice agents, real-time transcription, speech analytics, custom STT/TTS pipelines, media playback, checkpoints, barge-in, stream event handling, or any workflow that needs raw audio frames instead of completed recordings.
 ---
 
 # Vobiz Audio Streams skill

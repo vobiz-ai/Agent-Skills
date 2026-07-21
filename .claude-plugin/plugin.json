@@ -3,7 +3,7 @@
   "name": "vobiz",
   "displayName": "Vobiz",
   "version": "1.0.0",
-  "description": "Build programmable voice, SIP trunking, phone-number, WhatsApp, and AI voice-agent integrations with Vobiz.",
+  "description": "Build Vobiz voice, SIP, phone-number, WhatsApp, and AI-agent integrations with 13 domain skills and the current Vobiz Docs MCP server.",
   "author": {
     "name": "Vobiz",
     "email": "support@vobiz.ai",

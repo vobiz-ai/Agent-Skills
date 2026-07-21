@@ -1,6 +1,6 @@
 ---
 name: vobiz-cdr
-description: Query Vobiz Call Detail Records - list, search, retrieve by call_id, fetch recent, and export CSV. 43 fields per CDR including quality metrics (MOS, jitter, packet loss) and hangup attribution.
+description: Query and analyze Vobiz Call Detail Records (CDRs), including list, search, recent calls, retrieval by call_id, and CSV export. Use for completed-call history, billing reconciliation, reporting, hangup attribution, or voice-quality analysis using MOS, jitter, latency, packet loss, and related metrics.
 ---
 
 # Vobiz CDR skill

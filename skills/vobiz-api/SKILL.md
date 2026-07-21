@@ -1,6 +1,6 @@
 ---
 name: vobiz-api
-description: Build with the Vobiz REST API and select the correct domain workflow. Use for authentication, API path casing, request construction, errors, phone numbers, voice calls, SIP trunks, applications, endpoints, CDRs, partner accounts, sub-accounts, WhatsApp, and VobizXML.
+description: Build with the Vobiz REST API and route work to the correct domain workflow. Use when a request involves Vobiz authentication, API path casing, request construction, errors, phone numbers, voice calls, SIP trunks, applications, endpoints, CDRs, partner accounts, sub-accounts, WhatsApp, VobizXML, or when the correct specialized Vobiz skill is unclear.
 ---
 
 # Vobiz API

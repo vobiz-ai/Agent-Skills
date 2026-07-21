@@ -1,6 +1,6 @@
 ---
 name: vobiz-phone-numbers
-description: Discover, purchase, assign, and release Vobiz phone numbers (DIDs) - including 140-series, 1600-series, mobile, and toll-free numbers across countries.
+description: Discover, purchase, assign, and release Vobiz phone numbers (DIDs) across supported countries. Use when searching inventory, comparing setup and monthly fees, buying local/mobile/toll-free or India 140/1600-series numbers, attaching numbers to applications or trunks, transferring them to sub-accounts, or managing release and cooldown behavior.
 ---
 
 # Vobiz Phone Numbers skill

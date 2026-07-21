@@ -1,7 +1,7 @@
 {
   "name": "vobiz",
   "version": "1.0.0",
-  "description": "Build programmable voice, SIP trunking, phone-number, WhatsApp, and AI voice-agent integrations with Vobiz.",
+  "description": "Build Vobiz voice, SIP, phone-number, WhatsApp, and AI-agent integrations with 13 domain skills and the current Vobiz Docs MCP server.",
   "author": {
     "name": "Vobiz",
     "email": "support@vobiz.ai",
@@ -22,8 +22,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Vobiz",
-    "shortDescription": "Build Vobiz voice and messaging integrations",
-    "longDescription": "Use current Vobiz documentation and focused implementation skills for voice calls, SIP trunks, phone numbers, VobizXML, audio streams, WhatsApp, and AI voice agents.",
+    "shortDescription": "Vobiz skills and current Docs MCP context",
+    "longDescription": "Use 13 focused implementation skills for voice calls, SIP trunks, phone numbers, VobizXML, audio streams, WhatsApp, partner accounts, and AI voice agents. The public Vobiz Docs MCP server supplies current documentation over Streamable HTTP without requiring credentials.",
     "developerName": "Vobiz",
     "category": "Developer Tools",
     "capabilities": [

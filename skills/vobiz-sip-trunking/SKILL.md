@@ -1,6 +1,6 @@
 ---
 name: vobiz-sip-trunking
-description: Manage Vobiz SIP trunks, IP ACLs, SIP credentials, and origination URIs for BYOC and outbound routing.
+description: Create and manage Vobiz SIP trunks, IP ACLs, SIP credentials, origination URIs, transport, TLS/SRTP, concurrency, and CPS limits. Use when connecting a PBX, contact center, carrier, or AI voice platform through BYOC, configuring inbound or outbound routing, load balancing/failover, or troubleshooting SIP authentication.
 ---
 
 # Vobiz SIP trunking skill

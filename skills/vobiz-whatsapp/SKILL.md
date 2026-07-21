@@ -1,6 +1,6 @@
 ---
 name: vobiz-whatsapp
-description: Send and receive messages on the WhatsApp Business API via Vobiz - message templates, broadcast campaigns, inbound webhooks, multi-agent inbox, and BYON channel setup.
+description: Build WhatsApp Business messaging workflows through Vobiz. Use when sending approved templates or session messages, receiving inbound webhook events, creating broadcast campaigns, configuring BYON channels, managing contacts or conversations, building chatbots, or setting up a multi-agent customer-support inbox.
 ---
 
 # Vobiz WhatsApp skill

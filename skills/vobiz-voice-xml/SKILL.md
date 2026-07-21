@@ -1,6 +1,6 @@
 ---
 name: vobiz-voice-xml
-description: Build declarative call flows with VobizXML - Vobiz's TwiML-equivalent for play, speak, gather, dial, record, stream, conference, redirect, and hangup verbs.
+description: Build declarative call flows with VobizXML, Vobiz's TwiML-equivalent. Use when creating IVRs, prompts, digit or speech gathering, dialing, call queues, conferences, recordings, audio streams, redirects, voicemail, transfers, or hangups through XML returned from an answer URL.
 ---
 
 # Vobiz Voice XML skill

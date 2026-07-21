@@ -1,6 +1,6 @@
 ---
 name: vobiz-voice-calls
-description: Place, control, and inspect voice calls on Vobiz - make outbound calls, transfer, hangup, list live calls, and react to call events via webhooks.
+description: Place, control, and inspect live Vobiz voice calls. Use when creating outbound calls, selecting answer URLs, transferring or hanging up active calls, listing or retrieving live calls, handling call-status webhooks, diagnosing call initiation errors, or deciding when completed-call work belongs in the CDR workflow instead.
 ---
 
 # Vobiz Voice Calls skill

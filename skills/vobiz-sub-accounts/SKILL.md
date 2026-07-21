@@ -1,6 +1,6 @@
 ---
 name: vobiz-sub-accounts
-description: Manage Vobiz sub-accounts for multi-team or multi-environment isolation - separate billing, credentials, and number pools under one parent account, including per-sub-account India KYC (PAN, GST, CIN, DigiLocker) and hosted KYC sessions.
+description: Manage Vobiz sub-accounts under one parent account. Use when isolating dev/staging/production, teams, customers, credentials, billing, number pools, and CDRs; creating customer-use or internal sub-accounts; transferring balance or numbers; or completing per-sub-account India KYC through PAN, GST, CIN, DigiLocker, or hosted sessions.
 ---
 
 # Vobiz Sub-Accounts skill

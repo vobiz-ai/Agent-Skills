@@ -1,6 +1,6 @@
 ---
 name: vobiz-plivo-migration
-description: Migrate a Plivo voice integration to Vobiz - swap the client/auth and base URL, rename one XML verb, update the webhook signature header, and provision new Vobiz numbers (Plivo numbers cannot be ported). Plivo and Vobiz are near 1:1, so prefer minimal diffs.
+description: Migrate an existing Plivo voice integration to Vobiz with minimal code changes. Use when replacing Plivo SDK authentication and base URLs, converting PlivoXML to VobizXML, updating webhook signature handling, validating equivalent call APIs, or provisioning replacement Vobiz numbers because Plivo numbers cannot be ported.
 ---
 
 # Vobiz Plivo migration skill
