@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-marketplace.json",
+  "name": "vobiz-plugins",
+  "owner": {
+    "name": "Vobiz",
+    "email": "support@vobiz.ai"
+  },
+  "metadata": {
+    "description": "Official Vobiz plugins for programmable voice, SIP trunking, phone numbers, WhatsApp, and AI voice agents"
+  },
+  "plugins": [
+    {
+      "name": "vobiz",
+      "source": "./",
+      "description": "Official Vobiz skills and live documentation tools for Claude Code",
+      "category": "development",
+      "tags": ["voice-api", "sip", "telephony", "voice-agents", "whatsapp"]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "vobiz-docs": {
+      "type": "http",
+      "url": "https://docs.vobiz.ai/mcp"
+    }
+  }
+}

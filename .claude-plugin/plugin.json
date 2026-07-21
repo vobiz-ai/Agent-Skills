@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "vobiz",
+  "displayName": "Vobiz",
+  "version": "1.0.0",
+  "description": "Build programmable voice, SIP trunking, phone-number, WhatsApp, and AI voice-agent integrations with Vobiz.",
+  "author": {
+    "name": "Vobiz",
+    "email": "support@vobiz.ai",
+    "url": "https://vobiz.ai"
+  },
+  "homepage": "https://vobiz.ai/docs/resources/skills",
+  "repository": "https://github.com/vobiz-ai/Agent-Skills",
+  "license": "MIT",
+  "keywords": ["vobiz", "voice-api", "sip-trunking", "voice-agents", "telephony", "whatsapp"],
+  "mcpServers": "./.mcp.json"
+}
