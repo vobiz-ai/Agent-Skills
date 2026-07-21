@@ -1,0 +1,23 @@
+---
+description: Build and review Vobiz voice, SIP, messaging, and AI-agent integrations
+alwaysApply: true
+---
+
+# Vobiz development rules
+
+Read `skills/vobiz-api/SKILL.md` before handling a Vobiz integration. Load the
+specialized `skills/vobiz-*/SKILL.md` file that matches the requested domain.
+
+- Verify uncertain or changing behavior with `https://vobiz.ai/docs/introduction`,
+  `https://vobiz.ai/openapi.json`, or `https://vobiz.ai/docs/mcp`.
+- Use `https://api.vobiz.ai/api/v1` as the REST base URL.
+- Preserve endpoint path casing exactly.
+- Use `X-Auth-ID` and `X-Auth-Token` for server-side REST authentication unless
+  the current endpoint documentation explicitly supports another method.
+- Keep credentials in environment variables or a secret manager. Never print
+  or commit them.
+- Encode `+` as `%2B` in E.164 URL path parameters.
+- Require explicit confirmation before billable, destructive, money-moving, or
+  externally visible actions.
+- Do not invent endpoints, fields, prices, limits, or product behavior.
+

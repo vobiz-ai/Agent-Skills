@@ -54,6 +54,23 @@ npx skills add vobiz-ai/Agent-Skills \
   --global
 ```
 
+## Agent configuration
+
+This repository includes public, repository-scoped instructions for major
+coding agents:
+
+| Agent | Configuration |
+| --- | --- |
+| Codex and compatible agents | [`AGENTS.md`](./AGENTS.md) |
+| Claude Code | [`.claude/rules/vobiz.md`](./.claude/rules/vobiz.md) |
+| Cursor | [`.cursor/rules/vobiz.mdc`](./.cursor/rules/vobiz.mdc) |
+| Windsurf | [`.windsurf/rules/vobiz.md`](./.windsurf/rules/vobiz.md) |
+| GitHub Copilot | [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) |
+
+These files route agents to the maintained `skills/` content, canonical Vobiz
+documentation, OpenAPI definition, and MCP server. They also apply credential
+and confirmation safeguards to billable or externally visible operations.
+
 ## Available skills
 
 | Skill | Scope |
