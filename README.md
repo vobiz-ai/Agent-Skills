@@ -4,6 +4,25 @@ Reusable skills that teach coding agents how to build with the Vobiz REST API, V
 
 ## Install
 
+### Codex plugin
+
+Add the Vobiz marketplace and install the plugin:
+
+```bash
+codex plugin marketplace add vobiz-ai/Agent-Skills --ref main
+codex plugin add vobiz@vobiz-plugins
+```
+
+Start a new Codex session after installation. The plugin loads all 13 Vobiz
+skills and connects to the public Vobiz documentation MCP server.
+
+To verify the marketplace and installation:
+
+```bash
+codex plugin marketplace list
+codex plugin list
+```
+
 ### Claude plugin
 
 Add the official Vobiz marketplace and install the plugin in Claude Code:
@@ -16,6 +35,12 @@ claude plugin install vobiz@vobiz-plugins
 The plugin includes all Vobiz skills in this repository and connects Claude to
 the public Vobiz documentation MCP server for current documentation search.
 After installation, run `/reload-plugins` in Claude Code.
+
+Verify the plugin manifests before contributing changes:
+
+```bash
+claude plugin validate . --strict
+```
 
 You can also add `https://github.com/vobiz-ai/Agent-Skills` through your Claude
 organization's **Settings → Plugins → Add plugins** control.
@@ -53,6 +78,21 @@ npx skills add vobiz-ai/Agent-Skills \
   --agent codex \
   --global
 ```
+
+## Use
+
+Ask your agent for the Vobiz workflow you need. For example:
+
+```text
+Use Vobiz to build an outbound voice call integration.
+Use Vobiz to create a SIP trunk and connect an AI voice agent.
+Search the current Vobiz docs for the VobizXML Gather parameters.
+```
+
+The core `vobiz-api` skill routes tasks to the relevant domain skill. The
+plugin's public documentation MCP connection keeps documentation searches
+current. Any billable or externally visible action still requires your
+explicit confirmation.
 
 ## Agent configuration
 

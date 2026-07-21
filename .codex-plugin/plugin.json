@@ -1,0 +1,44 @@
+{
+  "name": "vobiz",
+  "version": "1.0.0",
+  "description": "Build programmable voice, SIP trunking, phone-number, WhatsApp, and AI voice-agent integrations with Vobiz.",
+  "author": {
+    "name": "Vobiz",
+    "email": "support@vobiz.ai",
+    "url": "https://vobiz.ai"
+  },
+  "homepage": "https://vobiz.ai/docs/resources/skills",
+  "repository": "https://github.com/vobiz-ai/Agent-Skills",
+  "license": "MIT",
+  "keywords": [
+    "vobiz",
+    "voice-api",
+    "sip-trunking",
+    "voice-agents",
+    "telephony",
+    "whatsapp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Vobiz",
+    "shortDescription": "Build Vobiz voice and messaging integrations",
+    "longDescription": "Use current Vobiz documentation and focused implementation skills for voice calls, SIP trunks, phone numbers, VobizXML, audio streams, WhatsApp, and AI voice agents.",
+    "developerName": "Vobiz",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Documentation search",
+      "Developer workflows"
+    ],
+    "websiteURL": "https://vobiz.ai",
+    "privacyPolicyURL": "https://vobiz.ai/privacy/",
+    "termsOfServiceURL": "https://vobiz.ai/terms/",
+    "defaultPrompt": [
+      "Use Vobiz to build an outbound voice call integration.",
+      "Use Vobiz to create a SIP trunk and connect an AI voice agent."
+    ],
+    "brandColor": "#E83C00",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  }
+}
