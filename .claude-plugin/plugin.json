@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "$schema": "https://agentplugins.org/schema/plugin.json",
   "name": "vobiz",
   "displayName": "Vobiz",
   "version": "1.0.0",
