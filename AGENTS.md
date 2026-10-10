@@ -12,7 +12,8 @@ configuration files.
 
 Available domains include phone numbers, voice calls, VobizXML, audio streams,
 SIP trunking, applications and endpoints, CDRs, sub-accounts, the Partner API,
-WhatsApp, AI voice agents, and Plivo migration.
+WhatsApp, AI voice agents, Plivo migration, and solution design
+(`vobiz-forward-deployed-engineer`, for choosing the path before building).
 
 ## Use canonical developer resources
 

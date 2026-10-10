@@ -1,6 +1,6 @@
 {
   "name": "vobiz",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Build programmable voice, SIP trunking, phone-number, WhatsApp, and AI voice-agent integrations with Vobiz.",
   "author": {
     "name": "Vobiz",
