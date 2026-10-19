@@ -9,10 +9,10 @@ specialized skill needed for the requested domain.
 
 Use these canonical sources:
 
-- Docs: `https://vobiz.ai/docs/introduction`
-- OpenAPI: `https://vobiz.ai/openapi.json`
+- Docs: `https://www.vobiz.ai/docs/introduction`
+- OpenAPI: `https://www.vobiz.ai/openapi.json`
 - MCP: `https://www.vobiz.ai/docs/mcp`
-- Agent guidance: `https://vobiz.ai/agents.md`
+- Agent guidance: `https://www.vobiz.ai/agents.md`
 
 Preserve Vobiz endpoint path casing. Keep `X-Auth-ID` and `X-Auth-Token` in
 environment variables or a secret manager, and never expose them. Encode `+`

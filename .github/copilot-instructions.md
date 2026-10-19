@@ -3,8 +3,8 @@
 Use `skills/vobiz-api/SKILL.md` to select the correct Vobiz domain skill. Treat
 the skill files and current Vobiz documentation as the source of truth.
 
-- Docs: `https://vobiz.ai/docs/introduction`
-- OpenAPI: `https://vobiz.ai/openapi.json`
+- Docs: `https://www.vobiz.ai/docs/introduction`
+- OpenAPI: `https://www.vobiz.ai/openapi.json`
 - MCP: `https://www.vobiz.ai/docs/mcp`
 - REST base URL: `https://api.vobiz.ai/api/v1`
 
