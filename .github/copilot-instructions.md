@@ -5,7 +5,7 @@ the skill files and current Vobiz documentation as the source of truth.
 
 - Docs: `https://vobiz.ai/docs/introduction`
 - OpenAPI: `https://vobiz.ai/openapi.json`
-- MCP: `https://vobiz.ai/docs/mcp`
+- MCP: `https://www.vobiz.ai/docs/mcp`
 - REST base URL: `https://api.vobiz.ai/api/v1`
 
 Preserve API path casing and URL-encode E.164 path parameters. Keep credentials

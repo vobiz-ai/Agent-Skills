@@ -9,7 +9,7 @@ Read `skills/vobiz-api/SKILL.md` before handling a Vobiz integration. Load the
 specialized `skills/vobiz-*/SKILL.md` file that matches the requested domain.
 
 - Verify uncertain or changing behavior with `https://vobiz.ai/docs/introduction`,
-  `https://vobiz.ai/openapi.json`, or `https://vobiz.ai/docs/mcp`.
+  `https://vobiz.ai/openapi.json`, or `https://www.vobiz.ai/docs/mcp`.
 - Use `https://api.vobiz.ai/api/v1` as the REST base URL.
 - Preserve endpoint path casing exactly.
 - Use `X-Auth-ID` and `X-Auth-Token` for server-side REST authentication unless

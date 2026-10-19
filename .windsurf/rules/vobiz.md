@@ -11,7 +11,7 @@ Use these canonical sources:
 
 - Docs: `https://vobiz.ai/docs/introduction`
 - OpenAPI: `https://vobiz.ai/openapi.json`
-- MCP: `https://vobiz.ai/docs/mcp`
+- MCP: `https://www.vobiz.ai/docs/mcp`
 - Agent guidance: `https://vobiz.ai/agents.md`
 
 Preserve Vobiz endpoint path casing. Keep `X-Auth-ID` and `X-Auth-Token` in

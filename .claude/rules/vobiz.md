@@ -4,7 +4,7 @@ Use the maintained instructions under `skills/` for every Vobiz task. Start
 with `skills/vobiz-api/SKILL.md`, then load only the matching domain skill.
 
 - Verify changing behavior against `https://vobiz.ai/docs/introduction` or the
-  MCP server at `https://vobiz.ai/docs/mcp`.
+  MCP server at `https://www.vobiz.ai/docs/mcp`.
 - Use `https://api.vobiz.ai/api/v1` as the REST base URL.
 - Preserve endpoint path casing exactly.
 - Keep `X-Auth-ID` and `X-Auth-Token` in environment variables or a secret

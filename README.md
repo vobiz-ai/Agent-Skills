@@ -105,7 +105,7 @@ Skills provide instructions, not credentials. Keep `X-Auth-ID` and
                                  ▼
                     ┌────────────────────────────┐
                     │   vobiz-docs MCP server    │  live documentation
-                    │  https://vobiz.ai/docs/mcp │  search
+                    │  https://www.vobiz.ai/docs/mcp │  search
                     └────────────────────────────┘
                                  │
                                  ▼
@@ -277,7 +277,7 @@ and confirmation safeguards to billable or externally visible operations.
 | --- | --- |
 | API documentation | [vobiz.ai/docs/introduction](https://vobiz.ai/docs/introduction) |
 | OpenAPI specification | [vobiz.ai/openapi.json](https://vobiz.ai/openapi.json) |
-| Documentation MCP server | [vobiz.ai/docs/mcp](https://vobiz.ai/docs/mcp) |
+| Documentation MCP server | [vobiz.ai/docs/mcp](https://www.vobiz.ai/docs/mcp) |
 | Developer Console | [console.vobiz.ai](https://console.vobiz.ai) |
 | LLM discovery index | [vobiz.ai/llms.txt](https://vobiz.ai/llms.txt) |
 | Agent orientation | [vobiz.ai/agents.md](https://vobiz.ai/agents.md) |
@@ -290,7 +290,7 @@ public Vobiz documentation server to the official MCP Registry. The server uses
 Streamable HTTP and does not require credentials:
 
 ```text
-https://vobiz.ai/docs/mcp
+https://www.vobiz.ai/docs/mcp
 ```
 
 Registry name:
@@ -367,7 +367,7 @@ directory name is the skill name and must match the `name` in the frontmatter.
 | Agent-generated requests return `404` on a valid-looking path | Path casing was changed, or an E.164 number was left unencoded in the path | `/Account/`, `/account/`, and `/accounts/` are not interchangeable; encode `+` as `%2B` in URL paths and keep the literal `+` in JSON bodies |
 | Partner endpoints return `404` | The request used `/partner/v1/` | Partner routes live under `https://api.vobiz.ai/api/v1/partner/*` |
 | Agent invents endpoints instead of loading a skill | The prompt did not name Vobiz, so the router skill never loaded | Say "use the Vobiz skills" and name the domain, e.g. "use Vobiz SIP trunking" |
-| Documentation search returns nothing | The MCP server is not reachable from the agent's environment | Confirm outbound access to `https://vobiz.ai/docs/mcp`; it is a public Streamable HTTP endpoint needing no credentials |
+| Documentation search returns nothing | The MCP server is not reachable from the agent's environment | Confirm outbound access to `https://www.vobiz.ai/docs/mcp`; it is a public Streamable HTTP endpoint needing no credentials |
 
 ## Security notes
 

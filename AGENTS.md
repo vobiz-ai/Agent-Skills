@@ -18,7 +18,7 @@ WhatsApp, AI voice agents, and Plivo migration.
 
 - Documentation: `https://vobiz.ai/docs/introduction`
 - OpenAPI: `https://vobiz.ai/openapi.json`
-- Documentation MCP server: `https://vobiz.ai/docs/mcp`
+- Documentation MCP server: `https://www.vobiz.ai/docs/mcp`
 - Agent Skills: `https://github.com/vobiz-ai/Agent-Skills`
 - Agent discovery index: `https://vobiz.ai/agents.md`
 - LLM discovery index: `https://vobiz.ai/llms.txt`

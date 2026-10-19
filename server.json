@@ -15,7 +15,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://vobiz.ai/docs/mcp"
+      "url": "https://www.vobiz.ai/docs/mcp"
     }
   ]
 }
