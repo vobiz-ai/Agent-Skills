@@ -4,7 +4,7 @@ Reusable skills that teach coding agents how to build with the Vobiz REST API, V
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![Skills](https://img.shields.io/badge/skills-13-E83C00.svg)](./skills)
-[![Docs](https://img.shields.io/badge/docs-vobiz.ai-0b7285.svg)](https://vobiz.ai/docs/introduction)
+[![Docs](https://img.shields.io/badge/docs-vobiz.ai-0b7285.svg)](https://www.vobiz.ai/docs/introduction)
 
 ## Overview
 
@@ -26,7 +26,7 @@ task needs instead of the whole platform.
 
 The skills are consumed as an agent plugin rather than as documentation you read
 yourself. Install them into Codex or Claude Code and the plugin also wires up the
-public Vobiz documentation MCP server, so an agent can search current docs
+public Vobiz Docs MCP server, so an agent can search current docs
 instead of relying on whatever it memorised. Alongside the skills, the repository
 carries repository-scoped instruction files for Cursor, Windsurf, and GitHub
 Copilot, so the same conventions and safeguards apply whichever agent a developer
@@ -105,7 +105,7 @@ Skills provide instructions, not credentials. Keep `X-Auth-ID` and
                                  ▼
                     ┌────────────────────────────┐
                     │   vobiz-docs MCP server    │  live documentation
-                    │  https://vobiz.ai/docs/mcp │  search
+                    │  https://www.vobiz.ai/docs/mcp │  search
                     └────────────────────────────┘
                                  │
                                  ▼
@@ -152,8 +152,8 @@ Skills provide instructions, not credentials. Keep `X-Auth-ID` and
 | --- | --- |
 | A coding agent | Codex, Claude Code, Cursor, Windsurf, GitHub Copilot, or any agent the Skills CLI supports |
 | Node.js 22+ | Needed for `npx skills` and matching the version CI runs |
-| A Vobiz account | [Sign up](https://vobiz.ai) and collect your `X-Auth-ID` and `X-Auth-Token` from [console.vobiz.ai](https://console.vobiz.ai) |
-| Network access to `vobiz.ai` | The documentation MCP server is a public Streamable HTTP endpoint and needs no credentials |
+| A Vobiz account | [Sign up](https://www.vobiz.ai) and collect your `X-Auth-ID` and `X-Auth-Token` from [console.vobiz.ai](https://console.vobiz.ai) |
+| Network access to `www.vobiz.ai` | The Vobiz Docs MCP server is a public Streamable HTTP endpoint and needs no credentials |
 
 Installing the skills does not require Vobiz credentials. You only need them when
 the agent starts making real API calls on your behalf.
@@ -170,7 +170,7 @@ codex plugin add vobiz@vobiz-plugins
 ```
 
 Start a new Codex session after installation. The plugin loads all 13 Vobiz
-skills and connects to the public Vobiz documentation MCP server.
+skills and connects to the public Vobiz Docs MCP server.
 
 To verify the marketplace and installation:
 
@@ -189,7 +189,7 @@ claude plugin install vobiz@vobiz-plugins
 ```
 
 The plugin includes all Vobiz skills in this repository and connects Claude to
-the public Vobiz documentation MCP server for current documentation search.
+the public Vobiz Docs MCP server for current documentation search.
 After installation, run `/reload-plugins` in Claude Code.
 
 Verify the plugin manifests before contributing changes:
@@ -275,13 +275,13 @@ and confirmation safeguards to billable or externally visible operations.
 
 | Resource | URL |
 | --- | --- |
-| API documentation | [vobiz.ai/docs/introduction](https://vobiz.ai/docs/introduction) |
-| OpenAPI specification | [vobiz.ai/openapi.json](https://vobiz.ai/openapi.json) |
-| Documentation MCP server | [vobiz.ai/docs/mcp](https://vobiz.ai/docs/mcp) |
+| API documentation | [vobiz.ai/docs/introduction](https://www.vobiz.ai/docs/introduction) |
+| OpenAPI specification | [vobiz.ai/openapi.json](https://www.vobiz.ai/openapi.json) |
+| Vobiz Docs MCP server | [www.vobiz.ai/docs/mcp](https://www.vobiz.ai/docs/mcp) |
 | Developer Console | [console.vobiz.ai](https://console.vobiz.ai) |
-| LLM discovery index | [vobiz.ai/llms.txt](https://vobiz.ai/llms.txt) |
-| Agent orientation | [vobiz.ai/agents.md](https://vobiz.ai/agents.md) |
-| Integration guides | [vobiz.ai/docs/integrations](https://vobiz.ai/docs/integrations) |
+| LLM discovery index | [vobiz.ai/llms.txt](https://www.vobiz.ai/llms.txt) |
+| Agent orientation | [vobiz.ai/agents.md](https://www.vobiz.ai/agents.md) |
+| Integration guides | [vobiz.ai/docs/integrations](https://www.vobiz.ai/docs/integrations) |
 
 ## MCP Registry
 
@@ -290,7 +290,7 @@ public Vobiz documentation server to the official MCP Registry. The server uses
 Streamable HTTP and does not require credentials:
 
 ```text
-https://vobiz.ai/docs/mcp
+https://www.vobiz.ai/docs/mcp
 ```
 
 Registry name:
@@ -367,7 +367,7 @@ directory name is the skill name and must match the `name` in the frontmatter.
 | Agent-generated requests return `404` on a valid-looking path | Path casing was changed, or an E.164 number was left unencoded in the path | `/Account/`, `/account/`, and `/accounts/` are not interchangeable; encode `+` as `%2B` in URL paths and keep the literal `+` in JSON bodies |
 | Partner endpoints return `404` | The request used `/partner/v1/` | Partner routes live under `https://api.vobiz.ai/api/v1/partner/*` |
 | Agent invents endpoints instead of loading a skill | The prompt did not name Vobiz, so the router skill never loaded | Say "use the Vobiz skills" and name the domain, e.g. "use Vobiz SIP trunking" |
-| Documentation search returns nothing | The MCP server is not reachable from the agent's environment | Confirm outbound access to `https://vobiz.ai/docs/mcp`; it is a public Streamable HTTP endpoint needing no credentials |
+| Documentation search returns nothing | The MCP server is not reachable from the agent's environment | Confirm outbound access to `https://www.vobiz.ai/docs/mcp`; it is a public Streamable HTTP endpoint needing no credentials |
 
 ## Security notes
 
@@ -442,7 +442,7 @@ licensing arrangement, contact [piyush@vobiz.ai](mailto:piyush@vobiz.ai).
 
 ## Built by Team Vobiz
 
-[Vobiz](https://vobiz.ai) is a programmable voice and SIP-trunking platform for
+[Vobiz](https://www.vobiz.ai) is a programmable voice and SIP-trunking platform for
 voice APIs, SIP trunking, and AI voice agents. This repository is built and
 maintained by the Vobiz team.
 
@@ -451,4 +451,4 @@ maintained by the Vobiz team.
 Questions, or want to talk through an integration? Open an issue on this repo,
 or reach out directly at [piyush@vobiz.ai](mailto:piyush@vobiz.ai).
 
-**Useful links:** [Docs](https://docs.vobiz.ai) · [API reference](https://docs.vobiz.ai/api-reference) · [Sign up](https://vobiz.ai)
+**Useful links:** [Docs](https://docs.vobiz.ai) · [API reference](https://docs.vobiz.ai/api-reference) · [Sign up](https://www.vobiz.ai)

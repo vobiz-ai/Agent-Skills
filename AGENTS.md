@@ -16,12 +16,12 @@ WhatsApp, AI voice agents, and Plivo migration.
 
 ## Use canonical developer resources
 
-- Documentation: `https://vobiz.ai/docs/introduction`
-- OpenAPI: `https://vobiz.ai/openapi.json`
-- Documentation MCP server: `https://vobiz.ai/docs/mcp`
+- Documentation: `https://www.vobiz.ai/docs/introduction`
+- OpenAPI: `https://www.vobiz.ai/openapi.json`
+- Vobiz Docs MCP server: `https://www.vobiz.ai/docs/mcp`
 - Agent Skills: `https://github.com/vobiz-ai/Agent-Skills`
-- Agent discovery index: `https://vobiz.ai/agents.md`
-- LLM discovery index: `https://vobiz.ai/llms.txt`
+- Agent discovery index: `https://www.vobiz.ai/agents.md`
+- LLM discovery index: `https://www.vobiz.ai/llms.txt`
 
 Fetch current documentation when an endpoint, request field, response, price,
 limit, or product behavior may have changed. Never invent an API path or field.

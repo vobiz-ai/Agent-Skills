@@ -5,9 +5,9 @@
   "author": {
     "name": "Vobiz",
     "email": "support@vobiz.ai",
-    "url": "https://vobiz.ai"
+    "url": "https://www.vobiz.ai"
   },
-  "homepage": "https://vobiz.ai/docs/resources/skills",
+  "homepage": "https://www.vobiz.ai/docs/resources/skills",
   "repository": "https://github.com/vobiz-ai/Agent-Skills",
   "license": "MIT",
   "keywords": [
@@ -30,9 +30,9 @@
       "Documentation search",
       "Developer workflows"
     ],
-    "websiteURL": "https://vobiz.ai",
-    "privacyPolicyURL": "https://vobiz.ai/privacy/",
-    "termsOfServiceURL": "https://vobiz.ai/terms/",
+    "websiteURL": "https://www.vobiz.ai",
+    "privacyPolicyURL": "https://www.vobiz.ai/privacy/",
+    "termsOfServiceURL": "https://www.vobiz.ai/terms/",
     "defaultPrompt": [
       "Use Vobiz to build an outbound voice call integration.",
       "Use Vobiz to create a SIP trunk and connect an AI voice agent."
