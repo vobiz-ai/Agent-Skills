@@ -1,7 +1,7 @@
 {
   "name": "vobiz",
-  "version": "1.0.0",
-  "description": "Build programmable voice, SIP trunking, phone-number, WhatsApp, and AI voice-agent integrations with Vobiz.",
+  "version": "1.1.0",
+  "description": "Build programmable voice, SIP trunking, phone-number, SMS, WhatsApp, and AI voice-agent integrations with Vobiz.",
   "author": {
     "name": "Vobiz",
     "email": "support@vobiz.ai",
@@ -16,6 +16,7 @@
     "sip-trunking",
     "voice-agents",
     "telephony",
+    "sms",
     "whatsapp"
   ],
   "skills": "./skills/",
@@ -23,7 +24,7 @@
   "interface": {
     "displayName": "Vobiz",
     "shortDescription": "Build Vobiz voice and messaging integrations",
-    "longDescription": "Use current Vobiz documentation and focused implementation skills for voice calls, SIP trunks, phone numbers, VobizXML, audio streams, WhatsApp, and AI voice agents.",
+    "longDescription": "Use current Vobiz documentation and focused implementation skills for voice calls, SIP trunks, phone numbers, VobizXML, audio streams, SMS, WhatsApp, and AI voice agents.",
     "developerName": "Vobiz",
     "category": "Developer Tools",
     "capabilities": [

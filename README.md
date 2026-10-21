@@ -17,7 +17,7 @@ buys the wrong DID, a fire-and-forget retry places a second billable call, and
 a leaked auth token is a live account.
 
 This repository closes that gap. It packages the Vobiz platform as a set of
-thirteen focused skills — short, verified instruction files that an agent loads
+fifteen focused skills — short, verified instruction files that an agent loads
 on demand. Each skill covers one domain, states the exact base URL, path
 casing, auth headers, request fields, and error behaviour for that domain, and
 tells the agent when to hand off to a different skill. A router skill
@@ -78,8 +78,10 @@ agent runtimes use for discovery.
 | [`vobiz-sub-accounts`](./skills/vobiz-sub-accounts/SKILL.md) | Internal segmentation | Sub-accounts for dev/staging/prod or per-team isolation, `personal_use` versus `customer_use` KYC, and how they differ from partner customer accounts |
 | [`vobiz-partner-api`](./skills/vobiz-partner-api/SKILL.md) | Reseller workflows | Partner profile and dashboard, customer account creation, balance transfers, PAN + Aadhaar OTP KYC sessions, and per-customer CDRs, transactions, and numbers |
 | [`vobiz-whatsapp`](./skills/vobiz-whatsapp/SKILL.md) | WhatsApp Business | Sending text, template, and media messages, template management per channel, the multi-agent inbox, signed inbound webhooks, and the three channel onboarding modes |
+| [`vobiz-sms`](./skills/vobiz-sms/SKILL.md) | SMS, MMS and RCS | Single and multi-recipient sends, cost preview, idempotency, scheduling, delivery status, two-way conversations, opt-outs, webhooks, broadcasts, RCS senders, and US 10DLC / India DLT compliance |
 | [`vobiz-ai-voice-agents`](./skills/vobiz-ai-voice-agents/SKILL.md) | Voice AI integrations | Three deployment models — no-code dashboard, vendor API, and self-hosted runtime — across Vapi, Retell AI, ElevenLabs, LiveKit, Pipecat, Bolna, Ultravox, OpenAI Realtime, Deepgram, and WebRTC |
 | [`vobiz-plivo-migration`](./skills/vobiz-plivo-migration/SKILL.md) | Migration | The minimal-diff port from Plivo: client and credential swap, `<GetDigits>`/`<GetInput>` → `<Gather>`, `X-Vobiz-Signature-V2/V3`, and re-pointing `answer_url`/`hangup_url` |
+| [`vobiz-forward-deployed-engineer`](./skills/vobiz-forward-deployed-engineer/SKILL.md) | Solution scoping | Interviews the user one question at a time, resolves direction, who talks, AI or human, India compliance, scale, tenancy and channel, then recommends the Vobiz integration path with the exact pages and skills to build it |
 
 Skills provide instructions, not credentials. Keep `X-Auth-ID` and
 `X-Auth-Token` in environment variables or a secret manager.
@@ -131,7 +133,7 @@ Skills provide instructions, not credentials. Keep `X-Auth-ID` and
 
 | Path | Responsibility |
 | --- | --- |
-| [`skills/`](./skills) | The thirteen `SKILL.md` files. This is the content everything else points at |
+| [`skills/`](./skills) | The fifteen `SKILL.md` files. This is the content everything else points at |
 | [`AGENTS.md`](./AGENTS.md) | Repository-scoped instructions for Codex and compatible agents; also the contributor standard for this repo |
 | [`.claude-plugin/plugin.json`](./.claude-plugin/plugin.json) | Claude Code plugin manifest — name, version, author, and the MCP server reference |
 | [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) | Declares the `vobiz-plugins` marketplace containing the `vobiz` plugin |
@@ -169,7 +171,7 @@ codex plugin marketplace add vobiz-ai/Agent-Skills --ref main
 codex plugin add vobiz@vobiz-plugins
 ```
 
-Start a new Codex session after installation. The plugin loads all 13 Vobiz
+Start a new Codex session after installation. The plugin loads all 15 Vobiz
 skills and connects to the public Vobiz Docs MCP server.
 
 To verify the marketplace and installation:
@@ -360,7 +362,7 @@ directory name is the skill name and must match the `name` in the frontmatter.
 | Skills do not appear after `codex plugin add` | The session was started before installation | Start a new Codex session, then confirm with `codex plugin list` |
 | Skills do not appear in Claude Code | The plugin is installed but not loaded into the running session | Run `/reload-plugins`, or restart Claude Code |
 | `npx skills add . --list` returns nothing | Run from outside the repository root, or Node is older than 22 | Run from the repository root and use Node.js 22+, which is what CI uses |
-| CI fails with `Expected 13 skills, found 14` | A skill directory was added without updating the count assertion | Update the count in `.github/workflows/validate.yml` in the same pull request |
+| CI fails with `Expected 15 skills, found 16` | A skill directory was added without updating the count assertion | Update the count in `.github/workflows/validate.yml` in the same pull request |
 | CI fails on `assets/icon.png is not a PNG` | An asset was replaced with a different format or corrupted by a transfer | Restore a real PNG; CI checks the `89504e470d0a1a0a` file signature |
 | `claude plugin validate . --strict` fails | Malformed JSON or a bad path in one of the manifests | Parse each file in `.claude-plugin/`, `.codex-plugin/`, `.mcp.json`, and `server.json`; CI makes the same checks |
 | Agent-generated requests return `401` | `X-Auth-ID`/`X-Auth-Token` are missing from the environment | Export both from [console.vobiz.ai](https://console.vobiz.ai); skills never carry credentials |
