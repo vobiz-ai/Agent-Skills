@@ -35,7 +35,7 @@ jobs:
           const skills = readdirSync("skills", { withFileTypes: true })
             .filter((entry) => entry.isDirectory())
             .map((entry) => entry.name);
-          if (skills.length !== 13) throw new Error(`Expected 13 skills, found ${skills.length}`);
+          if (skills.length !== 15) throw new Error(`Expected 15 skills, found ${skills.length}`);
 
           const pngSignature = "89504e470d0a1a0a";
           for (const file of ["assets/icon.png", "assets/logo.png"]) {

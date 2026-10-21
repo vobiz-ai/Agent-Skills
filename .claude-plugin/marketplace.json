@@ -6,7 +6,7 @@
     "email": "support@vobiz.ai"
   },
   "metadata": {
-    "description": "Official Vobiz plugins for programmable voice, SIP trunking, phone numbers, WhatsApp, and AI voice agents"
+    "description": "Official Vobiz plugins for programmable voice, SIP trunking, phone numbers, SMS, WhatsApp, and AI voice agents"
   },
   "plugins": [
     {
