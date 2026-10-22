@@ -3,7 +3,7 @@
 Reusable skills that teach coding agents how to build with the Vobiz REST API, Voice API, VobizXML, SIP trunking, phone numbers, partner accounts, sub-accounts, WhatsApp, and AI voice integrations.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-13-E83C00.svg)](./skills)
+[![Skills](https://img.shields.io/badge/skills-17-E83C00.svg)](./skills)
 [![Docs](https://img.shields.io/badge/docs-vobiz.ai-0b7285.svg)](https://www.vobiz.ai/docs/introduction)
 
 ## Overview
@@ -17,7 +17,7 @@ buys the wrong DID, a fire-and-forget retry places a second billable call, and
 a leaked auth token is a live account.
 
 This repository closes that gap. It packages the Vobiz platform as a set of
-fifteen focused skills — short, verified instruction files that an agent loads
+seventeen focused skills — short, verified instruction files that an agent loads
 on demand. Each skill covers one domain, states the exact base URL, path
 casing, auth headers, request fields, and error behaviour for that domain, and
 tells the agent when to hand off to a different skill. A router skill
@@ -61,7 +61,7 @@ visible.
 
 ## What's included
 
-Thirteen skills live under [`skills/`](./skills), one directory per domain, each
+Seventeen skills live under [`skills/`](./skills), one directory per domain, each
 containing a single `SKILL.md` with YAML frontmatter (`name`, `description`) that
 agent runtimes use for discovery.
 
@@ -75,6 +75,8 @@ agent runtimes use for discovery.
 | [`vobiz-sip-trunking`](./skills/vobiz-sip-trunking/SKILL.md) | SIP infrastructure | Trunks and their auto-generated `{trunk_id}.sip.vobiz.ai` domain, SIP credentials, IP ACLs, origination URIs with priority/weight failover, and the four auth and routing layers |
 | [`vobiz-applications-endpoints`](./skills/vobiz-applications-endpoints/SKILL.md) | Applications and endpoints | Applications as webhook containers (`answer_url`, `hangup_url`) versus SIP endpoints for softphones, browser clients, and desk phones — and which one a given scenario needs |
 | [`vobiz-cdr`](./skills/vobiz-cdr/SKILL.md) | Call records | List, search, recent, CSV export, and get-by-`call_id`; 43 CDR fields including MOS, jitter, packet loss, and hangup attribution |
+| [`vobiz-reports`](./skills/vobiz-reports/SKILL.md) | Reports | Dated Markdown reports from account data: connected, not-connected and error calls, answer and connect rates by hour, number, destination or campaign, number performance and spam flags, spend and balance runway, campaign and messaging outcomes |
+| [`vobiz-campaign-planner`](./skills/vobiz-campaign-planner/SKILL.md) | Outbound campaigns | Plans a campaign end to end from the reports: sizing against concurrency and balance, caller-ID selection and whether to buy numbers, calling window and retries, cost estimate, list hygiene, build through the Campaign Manager API behind confirmation gates, monitoring and close-out |
 | [`vobiz-sub-accounts`](./skills/vobiz-sub-accounts/SKILL.md) | Internal segmentation | Sub-accounts for dev/staging/prod or per-team isolation, `personal_use` versus `customer_use` KYC, and how they differ from partner customer accounts |
 | [`vobiz-partner-api`](./skills/vobiz-partner-api/SKILL.md) | Reseller workflows | Partner profile and dashboard, customer account creation, balance transfers, PAN + Aadhaar OTP KYC sessions, and per-customer CDRs, transactions, and numbers |
 | [`vobiz-whatsapp`](./skills/vobiz-whatsapp/SKILL.md) | WhatsApp Business | Sending text, template, and media messages, template management per channel, the multi-agent inbox, signed inbound webhooks, and the three channel onboarding modes |
@@ -133,7 +135,7 @@ Skills provide instructions, not credentials. Keep `X-Auth-ID` and
 
 | Path | Responsibility |
 | --- | --- |
-| [`skills/`](./skills) | The fifteen `SKILL.md` files. This is the content everything else points at |
+| [`skills/`](./skills) | The seventeen `SKILL.md` files. This is the content everything else points at |
 | [`AGENTS.md`](./AGENTS.md) | Repository-scoped instructions for Codex and compatible agents; also the contributor standard for this repo |
 | [`.claude-plugin/plugin.json`](./.claude-plugin/plugin.json) | Claude Code plugin manifest — name, version, author, and the MCP server reference |
 | [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) | Declares the `vobiz-plugins` marketplace containing the `vobiz` plugin |
@@ -171,7 +173,7 @@ codex plugin marketplace add vobiz-ai/Agent-Skills --ref main
 codex plugin add vobiz@vobiz-plugins
 ```
 
-Start a new Codex session after installation. The plugin loads all 15 Vobiz
+Start a new Codex session after installation. The plugin loads all 17 Vobiz
 skills and connects to the public Vobiz Docs MCP server.
 
 To verify the marketplace and installation:
@@ -362,7 +364,7 @@ directory name is the skill name and must match the `name` in the frontmatter.
 | Skills do not appear after `codex plugin add` | The session was started before installation | Start a new Codex session, then confirm with `codex plugin list` |
 | Skills do not appear in Claude Code | The plugin is installed but not loaded into the running session | Run `/reload-plugins`, or restart Claude Code |
 | `npx skills add . --list` returns nothing | Run from outside the repository root, or Node is older than 22 | Run from the repository root and use Node.js 22+, which is what CI uses |
-| CI fails with `Expected 15 skills, found 16` | A skill directory was added without updating the count assertion | Update the count in `.github/workflows/validate.yml` in the same pull request |
+| CI fails with `Expected 17 skills, found 18` | A skill directory was added without updating the count assertion | Update the count in `.github/workflows/validate.yml` in the same pull request |
 | CI fails on `assets/icon.png is not a PNG` | An asset was replaced with a different format or corrupted by a transfer | Restore a real PNG; CI checks the `89504e470d0a1a0a` file signature |
 | `claude plugin validate . --strict` fails | Malformed JSON or a bad path in one of the manifests | Parse each file in `.claude-plugin/`, `.codex-plugin/`, `.mcp.json`, and `server.json`; CI makes the same checks |
 | Agent-generated requests return `401` | `X-Auth-ID`/`X-Auth-Token` are missing from the environment | Export both from [console.vobiz.ai](https://console.vobiz.ai); skills never carry credentials |

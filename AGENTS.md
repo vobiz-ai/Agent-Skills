@@ -11,8 +11,8 @@ that matches the task. Do not duplicate full API guidance in platform-specific
 configuration files.
 
 Available domains include phone numbers, voice calls, VobizXML, audio streams,
-SIP trunking, applications and endpoints, CDRs, sub-accounts, the Partner API,
-WhatsApp, AI voice agents, and Plivo migration.
+SIP trunking, applications and endpoints, CDRs, reports, campaign planning,
+sub-accounts, the Partner API, WhatsApp, AI voice agents, and Plivo migration.
 
 ## Use canonical developer resources
 
