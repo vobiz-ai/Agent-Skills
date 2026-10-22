@@ -260,6 +260,8 @@ Once the path is chosen, load exactly the skills the build needs:
 | Applications and endpoints, WebRTC | `vobiz-applications-endpoints` |
 | Connect a named AI platform | `vobiz-ai-voice-agents` |
 | Call history, quality, billing data | `vobiz-cdr` |
+| Reports on connectivity, numbers, spend, campaigns | `vobiz-reports` |
+| Size, schedule and run an outbound campaign | `vobiz-campaign-planner` |
 | Tenants inside one account, KYC per tenant | `vobiz-sub-accounts` |
 | Reseller accounts, balance transfer, capacity transfer | `vobiz-partner-api` |
 | WhatsApp messaging | `vobiz-whatsapp` |

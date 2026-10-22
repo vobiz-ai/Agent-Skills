@@ -1,6 +1,6 @@
 ---
 name: vobiz-api
-description: Build with the Vobiz REST API and select the correct domain workflow. Use for authentication, API path casing, request construction, errors, phone numbers, voice calls, SIP trunks, applications, endpoints, CDRs, partner accounts, sub-accounts, WhatsApp, VobizXML, AI voice agents, and solution design.
+description: Build with the Vobiz REST API and select the correct domain workflow. Use for authentication, API path casing, request construction, errors, phone numbers, voice calls, SIP trunks, applications, endpoints, CDRs, reports, campaign planning, partner accounts, sub-accounts, WhatsApp, VobizXML, AI voice agents, and solution design.
 license: MIT
 compatibility: Vobiz REST API v1, X-Auth-ID + X-Auth-Token header auth.
 metadata:
@@ -26,6 +26,8 @@ Load only the specialized skill that matches the requested operation:
 | Manage SIP trunks, credentials, IP ACLs, or routing | `vobiz-sip-trunking` |
 | Configure voice applications or SIP endpoints | `vobiz-applications-endpoints` |
 | Query completed call records | `vobiz-cdr` |
+| Report on calls, answer rates, numbers, spend, campaigns or messaging; save a dated report | `vobiz-reports` |
+| Plan, size, launch and monitor an outbound calling campaign | `vobiz-campaign-planner` |
 | Manage internal sub-accounts and their KYC | `vobiz-sub-accounts` |
 | Operate a reseller partner account | `vobiz-partner-api` |
 | Send SMS, MMS or RCS, run broadcasts, or manage opt-outs | `vobiz-sms` |
