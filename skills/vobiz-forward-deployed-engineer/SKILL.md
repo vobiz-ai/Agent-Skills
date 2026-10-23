@@ -105,7 +105,7 @@ India changes the plan more than any other answer. Resolve all of this before pr
 
 | Series | Use | Constraints |
 |---|---|---|
-| **140** | Promotional, sales, lead gen | 9 AM-9 PM only, no DND bypass, TATA DLT mandatory, outbound only, assigned from the Vobiz pool |
+| **140** | Promotional, sales, lead gen | 10 AM-8 PM only, no DND bypass, TATA DLT mandatory, outbound only, assigned from the Vobiz pool |
 | **160** | Transactional and service - OTP, alerts, confirmations (the docs list BFSI-sector eligibility; confirm with Vobiz) | 24x7, DND bypass for pre-consented transactions, outbound only, acquired via operator |
 | **92-series mobile** | Consumer outbound where pickup rate matters | Aadhaar-bound; max 5 per KYC identity |
 | **1800** | Toll-free inbound | Inbound only |
@@ -260,6 +260,8 @@ Once the path is chosen, load exactly the skills the build needs:
 | Applications and endpoints, WebRTC | `vobiz-applications-endpoints` |
 | Connect a named AI platform | `vobiz-ai-voice-agents` |
 | Call history, quality, billing data | `vobiz-cdr` |
+| Reports on connectivity, numbers, spend, campaigns | `vobiz-reports` |
+| Size, schedule and run an outbound campaign | `vobiz-campaign-planner` |
 | Tenants inside one account, KYC per tenant | `vobiz-sub-accounts` |
 | Reseller accounts, balance transfer, capacity transfer | `vobiz-partner-api` |
 | WhatsApp messaging | `vobiz-whatsapp` |
