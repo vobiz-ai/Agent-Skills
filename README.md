@@ -1,9 +1,9 @@
 # Vobiz agent skills
 
-Reusable skills that teach coding agents how to build with the Vobiz REST API, Voice API, VobizXML, SIP trunking, phone numbers, partner accounts, sub-accounts, WhatsApp, and AI voice integrations.
+Reusable skills that teach coding agents how to build with the Vobiz REST API, Voice API, VobizXML, SIP trunking, phone numbers, partner accounts, sub-accounts, SMS, WhatsApp, and AI voice integrations, and how to scope solutions, generate account reports, and plan outbound campaigns.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/skills-13-E83C00.svg)](./skills)
+[![Skills](https://img.shields.io/badge/skills-17-E83C00.svg)](./skills)
 [![Docs](https://img.shields.io/badge/docs-vobiz.ai-0b7285.svg)](https://www.vobiz.ai/docs/introduction)
 
 ## Overview
@@ -17,7 +17,7 @@ buys the wrong DID, a fire-and-forget retry places a second billable call, and
 a leaked auth token is a live account.
 
 This repository closes that gap. It packages the Vobiz platform as a set of
-fifteen focused skills — short, verified instruction files that an agent loads
+seventeen focused skills — short, verified instruction files that an agent loads
 on demand. Each skill covers one domain, states the exact base URL, path
 casing, auth headers, request fields, and error behaviour for that domain, and
 tells the agent when to hand off to a different skill. A router skill
@@ -61,9 +61,10 @@ visible.
 
 ## What's included
 
-Thirteen skills live under [`skills/`](./skills), one directory per domain, each
-containing a single `SKILL.md` with YAML frontmatter (`name`, `description`) that
-agent runtimes use for discovery.
+Seventeen skills live under [`skills/`](./skills), one directory per domain, each
+containing a single `SKILL.md` with YAML frontmatter that agent runtimes use for
+discovery: `name`, `description`, `license`, `compatibility`, and `metadata`
+(`author`, `version`).
 
 | Skill | Scope | What it covers |
 | --- | --- | --- |
@@ -82,6 +83,8 @@ agent runtimes use for discovery.
 | [`vobiz-ai-voice-agents`](./skills/vobiz-ai-voice-agents/SKILL.md) | Voice AI integrations | Three deployment models — no-code dashboard, vendor API, and self-hosted runtime — across Vapi, Retell AI, ElevenLabs, LiveKit, Pipecat, Bolna, Ultravox, OpenAI Realtime, Deepgram, and WebRTC |
 | [`vobiz-plivo-migration`](./skills/vobiz-plivo-migration/SKILL.md) | Migration | The minimal-diff port from Plivo: client and credential swap, `<GetDigits>`/`<GetInput>` → `<Gather>`, `X-Vobiz-Signature-V2/V3`, and re-pointing `answer_url`/`hangup_url` |
 | [`vobiz-forward-deployed-engineer`](./skills/vobiz-forward-deployed-engineer/SKILL.md) | Solution scoping | Interviews the user one question at a time, resolves direction, who talks, AI or human, India compliance, scale, tenancy and channel, then recommends the Vobiz integration path with the exact pages and skills to build it |
+| [`vobiz-reports`](./skills/vobiz-reports/SKILL.md) | Account reports | Generates dated Markdown reports from Vobiz account data - connected and not-connected calls, answer and connect rates, hangup causes, per-number performance, call quality, spend, balance and runway, campaign outcomes, SMS and WhatsApp delivery, and sub-account usage |
+| [`vobiz-campaign-planner`](./skills/vobiz-campaign-planner/SKILL.md) | Campaign planning | Plans and runs an outbound voice campaign end to end - sizing against concurrency and balance, caller ID choice, calling window and retry policy, cost estimate, list cleaning, Campaign Manager API setup, monitoring, and a closing results report |
 
 Skills provide instructions, not credentials. Keep `X-Auth-ID` and
 `X-Auth-Token` in environment variables or a secret manager.
@@ -105,10 +108,10 @@ Skills provide instructions, not credentials. Keep `X-Auth-ID` and
      └──────────┴──────────┴─────┬────┴──────────┴──────────┘
                                  │
                                  ▼
-                    ┌────────────────────────────┐
-                    │   vobiz-docs MCP server    │  live documentation
-                    │  https://www.vobiz.ai/docs/mcp │  search
-                    └────────────────────────────┘
+                  ┌───────────────────────────────┐
+                  │     vobiz-docs MCP server     │  live documentation
+                  │ https://www.vobiz.ai/docs/mcp │  search
+                  └───────────────────────────────┘
                                  │
                                  ▼
                         generated integration
@@ -133,7 +136,7 @@ Skills provide instructions, not credentials. Keep `X-Auth-ID` and
 
 | Path | Responsibility |
 | --- | --- |
-| [`skills/`](./skills) | The fifteen `SKILL.md` files. This is the content everything else points at |
+| [`skills/`](./skills) | The seventeen `SKILL.md` files. This is the content everything else points at |
 | [`AGENTS.md`](./AGENTS.md) | Repository-scoped instructions for Codex and compatible agents; also the contributor standard for this repo |
 | [`.claude-plugin/plugin.json`](./.claude-plugin/plugin.json) | Claude Code plugin manifest — name, version, author, and the MCP server reference |
 | [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) | Declares the `vobiz-plugins` marketplace containing the `vobiz` plugin |
@@ -153,7 +156,7 @@ Skills provide instructions, not credentials. Keep `X-Auth-ID` and
 | Requirement | Notes |
 | --- | --- |
 | A coding agent | Codex, Claude Code, Cursor, Windsurf, GitHub Copilot, or any agent the Skills CLI supports |
-| Node.js 22+ | Needed for `npx skills` and matching the version CI runs |
+| Node.js 22.20 or newer | Needed for `npx skills` and matching the version CI runs |
 | A Vobiz account | [Sign up](https://www.vobiz.ai) and collect your `X-Auth-ID` and `X-Auth-Token` from [console.vobiz.ai](https://console.vobiz.ai) |
 | Network access to `www.vobiz.ai` | The Vobiz Docs MCP server is a public Streamable HTTP endpoint and needs no credentials |
 
@@ -171,7 +174,7 @@ codex plugin marketplace add vobiz-ai/Agent-Skills --ref main
 codex plugin add vobiz@vobiz-plugins
 ```
 
-Start a new Codex session after installation. The plugin loads all 15 Vobiz
+Start a new Codex session after installation. The plugin loads all 17 Vobiz
 skills and connects to the public Vobiz Docs MCP server.
 
 To verify the marketplace and installation:
@@ -215,6 +218,17 @@ Install all Vobiz skills:
 
 ```bash
 npx skills add vobiz-ai/Agent-Skills --all
+```
+
+`--all` is shorthand for `--skill '*' --agent '*' -y`: it installs every skill
+into every agent the CLI detects on your machine, without prompting. Use
+`--agent` to target specific agents instead.
+
+Install for Gemini CLI or Cursor:
+
+```bash
+npx skills add vobiz-ai/Agent-Skills --agent gemini-cli
+npx skills add vobiz-ai/Agent-Skills --agent cursor
 ```
 
 Install the core API skills:
@@ -285,6 +299,16 @@ and confirmation safeguards to billable or externally visible operations.
 | Agent orientation | [vobiz.ai/agents.md](https://www.vobiz.ai/agents.md) |
 | Integration guides | [vobiz.ai/docs/integrations](https://www.vobiz.ai/docs/integrations) |
 
+## Related
+
+- **Vobiz MCP Server** — operate a Vobiz account from an agent (calls, numbers,
+  trunks, reports): [GitHub](https://github.com/vobiz-ai/Vobiz-MCP-Server) ·
+  [docs](https://www.vobiz.ai/docs/resources/vobiz-mcp)
+- **Vobiz CLI** — the same operations from a terminal, and `vobiz skills install`
+  to install these skills: [GitHub](https://github.com/vobiz-ai/Vobiz-CLI) ·
+  [docs](https://www.vobiz.ai/docs/resources/cli)
+- **Agent Skills docs page** — [www.vobiz.ai/docs/resources/skills](https://www.vobiz.ai/docs/resources/skills)
+
 ## MCP Registry
 
 The repository includes [`server.json`](./server.json) for publishing the
@@ -313,14 +337,22 @@ directory name is the skill name and must match the `name` in the frontmatter.
    $EDITOR skills/vobiz-<domain>/SKILL.md
    ```
 
-2. **Write the frontmatter.** Two fields, both required. The `description` is
-   what an agent runtime reads to decide whether to load the skill, so make it
-   specific and list the operations it covers.
+2. **Write the frontmatter.** `name` and `description` are required; every
+   skill in this repository also sets `license`, `compatibility`, and
+   `metadata` (`author`, `version`). The `description` is what an agent runtime
+   reads to decide whether to load the skill, so make it specific and list the
+   operations it covers. `compatibility` states what the skill needs to run
+   (API version, credentials, tools).
 
    ```markdown
    ---
    name: vobiz-<domain>
    description: One sentence stating what this skill does and when to use it, naming the concrete operations it covers.
+   license: MIT
+   compatibility: Vobiz REST API v1 (X-Auth-ID + X-Auth-Token).
+   metadata:
+     author: vobiz
+     version: "1.0"
    ---
 
    # Vobiz <Domain> skill
@@ -361,8 +393,8 @@ directory name is the skill name and must match the `name` in the frontmatter.
 | --- | --- | --- |
 | Skills do not appear after `codex plugin add` | The session was started before installation | Start a new Codex session, then confirm with `codex plugin list` |
 | Skills do not appear in Claude Code | The plugin is installed but not loaded into the running session | Run `/reload-plugins`, or restart Claude Code |
-| `npx skills add . --list` returns nothing | Run from outside the repository root, or Node is older than 22 | Run from the repository root and use Node.js 22+, which is what CI uses |
-| CI fails with `Expected 15 skills, found 16` | A skill directory was added without updating the count assertion | Update the count in `.github/workflows/validate.yml` in the same pull request |
+| `npx skills add . --list` returns nothing | Run from outside the repository root, or Node is older than 22.20 | Run from the repository root and use Node.js 22.20 or newer, which is what CI uses |
+| CI fails with `Expected 17 skills, found 18` | A skill directory was added without updating the count assertion | Update the count in `.github/workflows/validate.yml` in the same pull request |
 | CI fails on `assets/icon.png is not a PNG` | An asset was replaced with a different format or corrupted by a transfer | Restore a real PNG; CI checks the `89504e470d0a1a0a` file signature |
 | `claude plugin validate . --strict` fails | Malformed JSON or a bad path in one of the manifests | Parse each file in `.claude-plugin/`, `.codex-plugin/`, `.mcp.json`, and `server.json`; CI makes the same checks |
 | Agent-generated requests return `401` | `X-Auth-ID`/`X-Auth-Token` are missing from the environment | Export both from [console.vobiz.ai](https://console.vobiz.ai); skills never carry credentials |
@@ -393,7 +425,8 @@ directory name is the skill name and must match the `name` in the frontmatter.
   real phone numbers, and secrets in skill examples. Please hold contributions to
   the same line.
 - Found a security issue? Report it privately to
-  [piyush@vobiz.ai](mailto:piyush@vobiz.ai) rather than opening a public issue.
+  [security@vobiz.ai](mailto:security@vobiz.ai) (or
+  [support@vobiz.ai](mailto:support@vobiz.ai)) rather than opening a public issue.
 
 ## Roadmap
 
@@ -440,7 +473,7 @@ Released under the [MIT License](./LICENSE) © Vobiz.
 MIT is permissive: you may use, modify, and redistribute this code, including in
 closed-source commercial products, provided the copyright notice and licence text
 are retained. There is no warranty. If your organisation needs a different
-licensing arrangement, contact [piyush@vobiz.ai](mailto:piyush@vobiz.ai).
+licensing arrangement, contact [support@vobiz.ai](mailto:support@vobiz.ai).
 
 ## Built by Team Vobiz
 
@@ -448,9 +481,9 @@ licensing arrangement, contact [piyush@vobiz.ai](mailto:piyush@vobiz.ai).
 voice APIs, SIP trunking, and AI voice agents. This repository is built and
 maintained by the Vobiz team.
 
-**Maintainer:** Piyush Sahoo — [piyush@vobiz.ai](mailto:piyush@vobiz.ai) · [LinkedIn](https://www.linkedin.com/in/piyush-s713/)
+**Maintainer:** Piyush Sahoo — [support@vobiz.ai](mailto:support@vobiz.ai) · [LinkedIn](https://www.linkedin.com/in/piyush-s713/)
 
 Questions, or want to talk through an integration? Open an issue on this repo,
-or reach out directly at [piyush@vobiz.ai](mailto:piyush@vobiz.ai).
+or reach out directly at [support@vobiz.ai](mailto:support@vobiz.ai).
 
-**Useful links:** [Docs](https://docs.vobiz.ai) · [API reference](https://docs.vobiz.ai/api-reference) · [Sign up](https://www.vobiz.ai)
+**Useful links:** [Docs](https://www.vobiz.ai/docs/introduction) · [API reference](https://www.vobiz.ai/docs/account) · [Sign up](https://www.vobiz.ai)

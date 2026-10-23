@@ -1,6 +1,6 @@
 ---
 name: vobiz-plivo-migration
-description: Migrate a Plivo voice integration to Vobiz - swap the client/auth and base URL, rename one XML verb, update the webhook signature header, and provision new Vobiz numbers (Plivo numbers cannot be ported). Plivo and Vobiz are near 1:1, so prefer minimal diffs.
+description: Migrate a Plivo voice integration to Vobiz - swap the client/auth and base URL, rename one XML verb plus a few attributes, update the webhook signature header, and provision new Vobiz numbers from the Vobiz inventory (existing Plivo numbers stay with Plivo). Plivo and Vobiz are near 1:1, so prefer minimal diffs.
 license: MIT
 compatibility: Vobiz REST API v1 (X-Auth-ID + X-Auth-Token), VobizXML 1.0; mirrors Plivo v1 + PlivoXML.
 metadata:
@@ -20,7 +20,7 @@ For most apps the entire migration is:
 2. Rename `calls.create(...)` -> `calls.make_call(...)` (Python) / `calls.makeCall(...)` (Node), pass `auth_id` explicitly, `to_` -> `to`, and always pass `answer_method`.
 3. Rename `<GetDigits>` / `<GetInput>` -> `<Gather>` in your XML (`type` -> `inputType`, `timeout` -> `executionTimeout`, `digitTimeout` -> `digitEndTimeout`).
 4. Point the webhook signature check at `X-Vobiz-Signature-V2` / `X-Vobiz-Signature-V3` using the Vobiz validator (HMAC-SHA256 of base URL + nonce).
-5. Buy **new Vobiz numbers** and re-point your flows - you can't port Plivo numbers.
+5. Buy **new Vobiz numbers** and re-point your flows. Vobiz provisions new numbers from its own inventory; existing Plivo numbers stay with Plivo.
 6. Re-point `answer_url` / `hangup_url`, test in sandbox, canary, cut over.
 
 ## What actually changes
@@ -69,9 +69,9 @@ Endpoints sit under `https://api.vobiz.ai/api/v1/Account/{auth_id}/...`. SDK nam
 
 The only real rename: `<GetDigits>` and `<GetInput>` -> `<Gather>`. Inside it, `type` -> `inputType` (`dtmf`, `speech`, `dtmf speech`), `timeout` -> `executionTimeout` (5-60s, default 15), `digitTimeout` -> `digitEndTimeout`. A `<GetInput>` that already uses `inputType`/`executionTimeout` is a tag rename only. In the builder, `add_get_digits(...)`/`add_get_input(...)` -> `add_gather(action=..., method=..., input_type=..., num_digits=..., execution_timeout=...)` on `vobizxml.ResponseElement()` (`from vobiz import vobizxml`). Every other verb maps 1:1 by name and nesting. Two attribute details: `<Conference maxMembers>` -> `maxParticipants`, and give every `<Record>` an `action` URL so Vobiz delivers `RecordUrl`. Return the document as `Content-Type: application/xml`.
 
-## Phone numbers - you can't port from Plivo
+## Phone numbers - provision new Vobiz numbers
 
-**There is no number-porting/transfer flow from Plivo (or any provider) into Vobiz.** Plivo numbers stay on Plivo. To run on Vobiz, buy new numbers from inventory (`GET .../inventory/numbers?country=IN` -> `POST .../numbers/purchase-from-inventory` with `{ "e164": "+91..." }`, leading `+` included), route them (attach to an application or assign to a trunk), and update every place the old number is published (app, CRM, website, IVR prompts, outbound caller ID). Keep Plivo numbers live during cutover, then release them on Plivo. Never tell a user to "port" their Plivo number.
+**Vobiz provisions new numbers from its own inventory; existing Plivo numbers stay with Plivo.** To run on Vobiz, buy new numbers from inventory (`GET .../inventory/numbers?country=IN` -> `POST .../numbers/purchase-from-inventory` with `{ "e164": "+91..." }`, leading `+` included), route them (attach to an application or assign to a trunk), and update every place the old number is published (app, CRM, website, IVR prompts, outbound caller ID). Keep Plivo numbers live during cutover, then release them on Plivo. Guide users to new Vobiz numbers rather than a port.
 
 ## Webhook signature (same family, use the Vobiz validator)
 
@@ -85,7 +85,7 @@ Both platforms sign callbacks with HMAC-SHA256 keyed by your auth token, base64-
 - **`answer_method` is required on `make_call`.** Plivo defaults it; Vobiz expects it passed explicitly.
 - **`to_` -> `to`** on `make_call` (keep `from_`). A silent rename that breaks if missed.
 - **Signature: swap the header and the validator.** Move from `X-Plivo-Signature-V3` to `X-Vobiz-Signature-V2/V3`; same HMAC-SHA256 + nonce family, signed string is base URL + nonce.
-- **You can't port numbers from Plivo.** Buy new Vobiz numbers; never suggest a port/transfer.
+- **Numbers come from Vobiz inventory.** Buy new Vobiz numbers; existing Plivo numbers stay with Plivo, so suggest new numbers rather than a port/transfer.
 - **Update hardcoded SIP URIs** from `sip.plivo.com` to `app.vobiz.ai` / `<trunk>.sip.vobiz.ai`.
 - **DID 15-day cool-off:** unassigning a recently-used number from a sub-account returns `409 did_cool_off_in_effect` (with `cool_off_until`, `cool_off_remaining_seconds`); admin `?force=true` override writes an audit record.
 - **Buying a number debits `setup_fee + monthly_fee` immediately** (parent `MA_` charged for `SA_` purchases); a failed debit surfaces as `500` (number stays in inventory), an unavailable number as `404`.
@@ -130,16 +130,16 @@ await client.calls.makeCall({
 
 XML builder: `import { vobizxml } from '@vobiz/sdk'`; `new vobizxml.ResponseElement()` -> `addGather({ action, method, inputType: 'dtmf', numDigits })` -> `toString()`.
 
-## Drop-in shim (coming soon)
+## Compatibility package (planned)
 
-A future `vobiz-plivo-compat` (Python) / `@vobiz/plivo-compat` (Node) package will expose the `plivo` surface but target Vobiz, so existing Plivo code runs with one import change. Treat as planned - do not claim it ships today.
+A `vobiz-plivo-compat` (Python) / `@vobiz/plivo-compat` (Node) package that exposes the `plivo` surface but targets Vobiz is a planned addition. It is not published, so migrate with the Vobiz SDK as shown above and do not tell users to install it.
 
 ## When to search docs
 
 - "Full migration steps" -> https://www.vobiz.ai/docs/guides/plivo-to-vobiz (sub-pages: auth-and-base-url, endpoint-mapping, xml-migration, webhooks-and-signatures, gotchas, number-porting, cutover-checklist)
 - "Side-by-side Plivo vs Vobiz code" -> https://www.vobiz.ai/docs/compare/plivo/code-snippets; per-domain tables under https://www.vobiz.ai/docs/compare/plivo/overview
 - "Let an AI agent convert my Plivo code" -> https://www.vobiz.ai/docs/compare/plivo/migration-agent
-- "Buy a Vobiz number (can't port from Plivo)" -> https://www.vobiz.ai/docs/buy-a-phone-number, https://www.vobiz.ai/docs/guides/plivo-to-vobiz/number-porting
+- "Buy a Vobiz number for a migrated flow" -> https://www.vobiz.ai/docs/buy-a-phone-number, https://www.vobiz.ai/docs/guides/plivo-to-vobiz/number-porting
 - "Gather attributes" -> https://www.vobiz.ai/docs/xml/gather
 - "Verify the webhook signature" -> https://www.vobiz.ai/docs/concepts/validating-callbacks
 - "Make-call params" -> https://www.vobiz.ai/docs/call/make-call

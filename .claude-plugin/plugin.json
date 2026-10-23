@@ -1,8 +1,7 @@
 {
-  "$schema": "https://agentplugins.org/schema/plugin.json",
   "name": "vobiz",
   "displayName": "Vobiz",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Build programmable voice, SIP trunking, phone-number, SMS, WhatsApp, and AI voice-agent integrations with Vobiz.",
   "author": {
     "name": "Vobiz",
@@ -12,6 +11,7 @@
   "homepage": "https://www.vobiz.ai/docs/resources/skills",
   "repository": "https://github.com/vobiz-ai/Agent-Skills",
   "license": "MIT",
+  "privacyPolicyUrl": "https://www.vobiz.ai/privacy/",
   "keywords": ["vobiz", "voice-api", "sip-trunking", "voice-agents", "telephony", "sms", "whatsapp"],
   "mcpServers": "./.mcp.json"
 }
